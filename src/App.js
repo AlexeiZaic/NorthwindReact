@@ -1,12 +1,13 @@
 
 import './App.css'
-import Laskuri from './Laskuri'; 
+import Laskuri from './Laskuri'
+import React, {useState} from 'react'
+import Posts from './Posts'
 
+const App = () =>  {
 
+  const [showLaskuri, setShowLaskuri] = useState(false)
 
-
-
-function App() {
 
 
   return (
@@ -14,7 +15,12 @@ function App() {
 
         <h1>Northwind Corporation</h1>
 
-        <Laskuri/>
+        {!showLaskuri && <button onClick={() => setShowLaskuri(true)}>näytä laskuri</button>}
+        {showLaskuri && <button onClick={() => setShowLaskuri(false)}>piilota laskuri</button>}
+        
+        {showLaskuri && <Laskuri />}
+
+        <Posts />
 
     </div>
   )
